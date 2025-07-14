@@ -1,11 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "./src/DArray.h"
-#include "./src/Sort.h"
+#include "../src/DArray.h"
+#include "../src/Sort.h"
 
-int main() {
-	FILE* file = fopen("./input.txt", "r");
+int main(int argc, char* argv[]) {
+	char filename[30];
+	strcat(filename, argv[0]);
+	char* parent_border = strrchr(filename, '/');
+	parent_border[0] = '\0';
+	strcat(filename, "/input.txt");
+
+	FILE* file = fopen(filename, "r");
 	if (!file) exit(1);
 	struct DArray_int array1 = NewDArray_int(1);
 	struct DArray_int array2 = NewDArray_int(1);
