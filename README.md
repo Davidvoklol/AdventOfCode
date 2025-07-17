@@ -3,5 +3,5 @@
 ## 2024
 
 ### Day1
-- [x] [part1](2024/day1/part1/)
-- [ ] part2
+- [ ] [part1](2024/day1/part1/)
+- [ ] [part2](2024/day1/part2/)
