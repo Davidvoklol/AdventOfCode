@@ -1,5 +1,5 @@
-all: ./main.c ./input.txt ../src/DArray.h ../src/DArray.c ../src/Sort.c ../src/Sort.h
-	gcc -o solution ./main.c ../src/DArray.c ../src/Sort.c
+all: ./main.c ../src/DynamicArray.c
+	gcc -o ./solution ./main.c ../src/DynamicArray.c
 
-clear: ./solution
-	rm ./solution
+clear: ./main.c
+	rm ./main.c
