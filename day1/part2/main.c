@@ -64,36 +64,34 @@ int main(int argc, char** argv) {
 		count++;
 	}
 
-	if (left_length == right_length) {
-		for (int i = left_length; i > 0; i--) {
-			for (int j = 1; j < i; j++) {
-				int left = left_nums[j - 1];
-				int right = left_nums[j];
-				if (left > right) {
-					int temp = left;
-					left_nums[j - 1] = right;
-					left_nums[j] = temp;
-				}
-				left = right_nums[j - 1];
-				right = right_nums[j];
-				if (left > right) {
-					int temp = left;
-					right_nums[j - 1] = right;
-					right_nums[j] = temp;
-				}
+	for (int i = right_length; i > 0; i--) {
+		for (int j = 0; j < i; j++) {
+			int left = right_nums[j - 1];
+			int right = right_nums[j];
+			if (left > right) {
+				int temp = left;
+				right_nums[j - 1] = right;
+				right_nums[j] = temp;
 			}
 		}
 	}
-	else {
-		printf("The arrays are not the same sime...\n");
-		exit(1);
+
+	int score = 0;
+	for (int i = 0; i < left_length; i++) {
+		int target = left_nums[i];
+		int count = 0;
+
+		int index = 1;
+		int current;
+		while ((current = right_nums[index]) <= target) {
+			if (current == target) count++;
+			index++;
+		}
+
+		score += count * target;
 	}
 
-	int sum = 0;
-	for (int i = 0; i < left_length; i++) {
-		sum += abs(left_nums[i] - right_nums[i]);
-	}
-	printf("Sum: %i\n", sum);
+	printf("score: %i\n", score);
 
 	free(left_nums);
 	free(right_nums);
