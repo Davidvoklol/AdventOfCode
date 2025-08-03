@@ -5,3 +5,6 @@
 ### day1
 - [x] part1
 - [x] part2
+
+### day2
+- [x] part1
