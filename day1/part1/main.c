@@ -3,24 +3,14 @@
 #include <string.h>
 
 int main(int argc, char** argv) {
-	char resolved_path[4096];
-	realpath(argv[0], resolved_path);
+	if (argc < 2) {
+		printf("No input file provided...\n");
+		exit(1);
+	};
 
-	char* last = strrchr(resolved_path, '/');
-	if (last) {
-		*last = '\0';
-		char* second_last = strrchr(resolved_path, '/');
-		if (second_last) {
-			*second_last = '\0';
-		}
-	}
-
-	char input_name[strlen(resolved_path) + strlen("/input.txt") + 1];
-	snprintf(input_name, sizeof(input_name), "%s/input.txt", resolved_path);
-
-	FILE* input = fopen(input_name, "r");
+	FILE* input = fopen(argv[1], "r");
 	if (!input) {
-		printf("Couldn't open '%s'\n", input_name);
+		printf("Couldn't open '%s'\n", argv[1]);
 		exit(1);
 	}
 
@@ -97,4 +87,5 @@ int main(int argc, char** argv) {
 
 	free(left_nums);
 	free(right_nums);
+	fclose(input);
 }
