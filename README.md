@@ -9,3 +9,6 @@
 ### day2
 - [x] part1
 - [x] part2
+
+### day3
+- [x] part1
