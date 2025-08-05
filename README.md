@@ -8,3 +8,4 @@
 
 ### day2
 - [x] part1
+- [x] part2
