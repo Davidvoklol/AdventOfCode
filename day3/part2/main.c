@@ -3,7 +3,8 @@
 
 const int TRUE = 1;
 const int FALSE = 0;
-
+const int SANTA = 0;
+const int ROBOT = 1;
 
 struct pos {
 	int x; int y;
@@ -25,8 +26,11 @@ int main(int argc, char* argv[]) {
 	struct pos* positions = calloc(positions_size, sizeof(struct pos));
 	int positions_count = 1;
 
-	struct pos position = { 0, 0 };
-	positions[0] = position;
+	struct pos santa_position = { 0, 0 };
+	struct pos robot_position = { 0, 0 };
+
+	positions[0] = robot_position;
+	int turn = SANTA;
 
 	while (1) {
 		char line[69];
@@ -42,12 +46,14 @@ int main(int argc, char* argv[]) {
 
 			char move = line[i];
 
-			if (move == '^') position.y++;
-			else if (move == '<') position.x--;
-			else if (move == '>') position.x++;
-			else if (move == 'v') position.y--;
+			if (move == '^') turn == ROBOT ? robot_position.y++ : santa_position.y++;
+			else if (move == '<') turn == ROBOT ? robot_position.x-- : santa_position.x--;
+			else if (move == '>') turn == ROBOT ? robot_position.x++ : santa_position.x++;
+			else if (move == 'v') turn == ROBOT ? robot_position.y-- : santa_position.y--;
 
-			positions[positions_count++] = position;
+			positions[positions_count++] = turn == ROBOT ? robot_position : santa_position;
+
+			turn = turn == SANTA ? ROBOT : SANTA;
 		}
 	}
 
@@ -74,4 +80,5 @@ int main(int argc, char* argv[]) {
 	free(positions);
 	fclose(input);
 }
+
 
