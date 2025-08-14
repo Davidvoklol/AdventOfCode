@@ -1,4 +1,2 @@
-TARGETS := $(wildcard day*/part*)
-
-%/solution: %/*.c
+%/solution: %/*.c include/*.c
 	gcc -o $@ $^
