@@ -4,6 +4,8 @@
 - gcc
 - make
 
+---
+
 >[!IMPORTANT]
 > In the `src/2015/C` folder should be a `Makefile` that will build the `solution` files
 >
