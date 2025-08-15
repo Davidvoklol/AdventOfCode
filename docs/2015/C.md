@@ -21,5 +21,5 @@
 >```
 
 ## day1
-- [ ] part1
+- [x] part1
 - [ ] part2
