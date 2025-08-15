@@ -1,15 +1,13 @@
 #include "../../include/custom.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main(int argc, char *argv[]) {
-	checkinput(argc, argv);
+	if (checkinput(argc, argv) == FAIL) exit(1);
 
-	FILE *input = fopen(argv[1], "r");
-	if (!input) {
-		printf("Couldn't open %s...\n", argv[1]);
-		exit(1);
-	}
+	FILE *input = verbose_fopen(argv[1], "r");
+	if (!input) exit(1);
 
 	int floor = 0;
 	while (1) {
@@ -28,5 +26,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	printf("answer: %i\n", floor);
+
+	fclose(input);
 }
 
