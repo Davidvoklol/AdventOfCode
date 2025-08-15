@@ -3,4 +3,4 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void checkinput(int argc, char* argv[]);
+void checkinput(int argc, char *argv[]);
