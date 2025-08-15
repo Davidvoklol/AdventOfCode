@@ -1,7 +1,6 @@
 #include "../../include/custom.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 int main(int argc, char *argv[]) {
 	if (checkinput(argc, argv) == FAIL) exit(1);
