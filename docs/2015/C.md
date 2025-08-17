@@ -24,7 +24,7 @@
 
 ### day1
 - [x] part1
-- [ ] part2
+- [x] part2
 
 ### day2
 - [ ] part1

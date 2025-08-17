@@ -15,3 +15,25 @@ FILE *verbose_fopen(const char *filename, const char *modes) {
 	if (!f) printf("Couldn't open %s...\n", filename);
 	return f;
 }
+
+int min(int array[], long size) {
+	if (size < 1) return NULL;
+
+	int max = array[0];
+	for (long i = 1; i < size; i++) {
+		if (array[i] > max) max = array[i];
+	}
+
+	return max;
+}
+
+int max(int array[], long size) {
+	if (size < 1) return NULL;
+
+	int min = array[0];
+	for (long i = 1; i < size; i++) {
+		if (array[i] < min) min = array[i];
+	}
+
+	return min;
+}
