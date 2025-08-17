@@ -17,18 +17,7 @@ FILE *verbose_fopen(const char *filename, const char *modes) {
 }
 
 int min(int array[], long size) {
-	if (size < 1) return NULL;
-
-	int max = array[0];
-	for (long i = 1; i < size; i++) {
-		if (array[i] > max) max = array[i];
-	}
-
-	return max;
-}
-
-int max(int array[], long size) {
-	if (size < 1) return NULL;
+	if (size < 1) return 0;
 
 	int min = array[0];
 	for (long i = 1; i < size; i++) {
@@ -36,4 +25,15 @@ int max(int array[], long size) {
 	}
 
 	return min;
+}
+
+int max(int array[], long size) {
+	if (size < 1) return 0;
+
+	int max = array[0];
+	for (long i = 1; i < size; i++) {
+		if (array[i] > max) max = array[i];
+	}
+
+	return max;
 }

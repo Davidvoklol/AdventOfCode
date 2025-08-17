@@ -10,8 +10,9 @@ int main(int argc, char *argv[]) {
 
 	int floor = 0;
 	int index = 0;
+	char buffer[420];
 	while (1 && floor >= 0) {
-		char buffer[420];
+		buffer[0] = '\0';
 
 		char *success = fgets(buffer, sizeof(buffer), input);
 		if (!success)  break;
